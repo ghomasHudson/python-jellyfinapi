@@ -145,46 +145,6 @@ Usage Examples
     jellyfin.library.section('TV Shows').get('The 100').rate(8.0)
 
 
-Controlling Sonos speakers
---------------------------
-
-To control Sonos speakers directly using Jellyfin APIs, the following requirements must be met:
-
-1. Active Jellyfin Pass subscription
-2. Sonos account linked to Jellyfin account
-3. Jellyfin remote access enabled
-
-Due to the design of Sonos music services, the API calls to control Sonos speakers route through https://sonos.jellyfin.tv
-and back via the Jellyfin server's remote access. Actual media playback is local unless networking restrictions prevent the
-Sonos speakers from connecting to the Jellyfin server directly.
-
-.. code-block:: python
-
-    from jellyfinapi.myjellyfin import MyJellyfinAccount
-    from jellyfinapi.server import JellyfinServer
-
-    baseurl = 'http://jellyfinserver:32400'
-    token = '2ffLuB84dqLswk9skLos'
-
-    account = MyJellyfinAccount(token)
-    server = JellyfinServer(baseurl, token)
-
-    # List available speakers/groups
-    for speaker in account.sonos_speakers():
-        print(speaker.title)
-
-    # Obtain JellyfinSonosPlayer instance
-    speaker = account.sonos_speaker("Kitchen")
-
-    album = server.library.section('Music').get('Stevie Wonder').album('Innervisions')
-
-    # Speaker control examples
-    speaker.playMedia(album)
-    speaker.pause()
-    speaker.setVolume(10)
-    speaker.skipNext()
-
-
 Running tests over JellyfinAPI
 --------------------------
 
@@ -240,23 +200,6 @@ And finally run the sync-related tests:
 Common Questions
 ----------------
 
-**Why are you using camelCase and not following PEP8 guidelines?**
-
-This API reads XML documents provided by MyJellyfin and the Jellyfin Server.
-We decided to conform to their style so that the API variable names directly
-match with the provided XML documents.
-
-
-**Why don't you offer feature XYZ?**
-
-This library is meant to be a wrapper around the XML pages the Jellyfin
-server provides. If we are not providing an API that is offered in the
-XML pages, please let us know! -- Adding additional features beyond that
-should be done outside the scope of this library.
-
-
 **What are some helpful links if trying to understand the raw Jellyfin API?**
 
-* https://github.com/jellyfininc/jellyfin-media-player/wiki/Remote-control-API
-* https://forums.jellyfin.tv/discussion/104353/pms-web-api-documentation
-* https://github.com/ghomasHudson/jellyfin-api/wiki
+* https://api.jellyfin.org/
