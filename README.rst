@@ -16,7 +16,7 @@ Python-JellyfinAPI
 
 Overview
 --------
-Unofficial Python bindings for the Jellyfin API. Our goal is to mirror [pkkid/python-plexapi](https://github.com/pkkid/python-plexapi) to allow [Jellyfin-Meta-Manager](https://github.com/ghomasHudson/Jellyfin-Meta-Manager) to directly use this as a drop-in-replacement.
+Unofficial Python bindings for the Jellyfin API. Our goal is to mirror `pkkid/python-plexapi <https://github.com/pkkid/python-plexapi>`_ to allow `Jellyfin-Meta-Manager <https://github.com/ghomasHudson/Jellyfin-Meta-Manager>`_ to directly use this as a drop-in-replacement.
 
 Installation & Documentation
 ----------------------------
