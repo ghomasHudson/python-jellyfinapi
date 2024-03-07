@@ -41,13 +41,7 @@ example of this is below. NOTE: Servername below is the name of the server (not
 the hostname and port).  If logged into Jellyfin Web you can see the server name in
 the top left above your available libraries.
 
-.. code-block:: python
-
-    from jellyfinapi.myjellyfin import MyJellyfinAccount
-    account = MyJellyfinAccount('<USERNAME>', '<PASSWORD>')
-    jellyfin = account.resource('<SERVERNAME>').connect()  # returns a JellyfinServer instance
-
-If you already know your auth token string, you can use the JellyfinServer object directly as above, by passing in the baseurl and auth token directly.
+Pass in the baseurl and auth token:
 
 .. code-block:: python
 
