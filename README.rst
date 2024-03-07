@@ -16,14 +16,7 @@ Python-JellyfinAPI
 
 Overview
 --------
-Unofficial Python bindings for the Jellyfin API. Our goal is to match all capabilities of the official
-Jellyfin Web Client. A few of the many features we currently support are:
-
-* Navigate local or remote shared libraries.
-* Perform library actions such as scan, analyze, empty trash.
-* Remote control and play media on connected clients, including `Controlling Sonos speakers`_
-* Listen in on all Jellyfin Server notifications.
- 
+Unofficial Python bindings for the Jellyfin API. Our goal is to mirror [pkkid/python-plexapi](https://github.com/pkkid/python-plexapi) to allow [Jellyfin-Meta-Manager](https://github.com/ghomasHudson/Jellyfin-Meta-Manager) to directly use this as a drop-in-replacement.
 
 Installation & Documentation
 ----------------------------
@@ -38,16 +31,8 @@ Installation & Documentation
 
     pip install jellyfinapi[alert]  # Install with dependencies required for jellyfinapi.alert
 
-Documentation_ can be found at Read the Docs.
 
-.. _Documentation: http://python-jellyfinapi.readthedocs.io/en/latest/
-
-Join our Discord_ for support and discussion.
-
-.. _Discord: https://discord.gg/GtAnnZAkuw
-
-
-Getting a JellyfinServer Instance
+Getting a Jellyfin Instance
 -----------------------------
 
 There are two types of authentication. If you are running on a separate network
@@ -62,9 +47,7 @@ the top left above your available libraries.
     account = MyJellyfinAccount('<USERNAME>', '<PASSWORD>')
     jellyfin = account.resource('<SERVERNAME>').connect()  # returns a JellyfinServer instance
 
-If you want to avoid logging into MyJellyfin and you already know your auth token
-string, you can use the JellyfinServer object directly as above, by passing in
-the baseurl and auth token directly.
+If you already know your auth token string, you can use the JellyfinServer object directly as above, by passing in the baseurl and auth token directly.
 
 .. code-block:: python
 
