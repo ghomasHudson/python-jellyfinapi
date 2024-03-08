@@ -87,56 +87,6 @@ Pass in the baseurl and auth token:
     jellyfin.library.section('TV Shows').get('The 100').rate(8.0)
 ```
 
-# Running tests over JellyfinAPI
-
-Use:
-
-```bash
-     tools/jellyfin-boostraptest.py 
-```
-
-with appropriate
-arguments and add this new server to a shared user which username is defined in environment variable `SHARED_USERNAME`.
-It uses `official docker image`_ to create a proper instance.
-
-For skipping the docker and reuse a existing server use 
-
-```bash
-    python jellyfin-bootstraptest.py --no-docker --username USERNAME --password PASSWORD --server-name NAME-OF-YOUR-SEVER
-```
-
-Also in order to run most of the tests you have to provide some environment variables:
-
-* `PLEXAPI_AUTH_SERVER_BASEURL` containing an URL to your Jellyfin instance, e.g. `http://127.0.0.1:32400` (without trailing
-  slash)
-* `PLEXAPI_AUTH_MYPLEX_USERNAME` and `PLEXAPI_AUTH_MYPLEX_PASSWORD` with your MyJellyfin username and password accordingly
-
-After this step you can run tests with following command:
-
-```bash
-    py.test tests -rxXs --ignore=tests/test_sync.py
-```
-
-Some of the tests in main test-suite require a shared user in your account (e.g. `test_myjellyfin_users`,
-`test_myjellyfin_updateFriend`, etc.), you need to provide a valid shared user's username to get them running you need to
-provide the username of the shared user as an environment variable `SHARED_USERNAME`. You can enable a Guest account and
-simply pass `Guest` as `SHARED_USERNAME` (or just create a user like `jellyfinapitest` and play with it).
-
-To be able to run tests over Mobile Sync api you have to some some more environment variables, to following values
-exactly:
-
-- PLEXAPI_HEADER_PROVIDES='controller,sync-target'
-- PLEXAPI_HEADER_PLATFORM=iOS
-- PLEXAPI_HEADER_PLATFORM_VERSION=11.4.1
-- PLEXAPI_HEADER_DEVICE=iPhone
-
-And finally run the sync-related tests:
-
-```bash
-
-    py.test tests/test_sync.py -rxXs
-```
-
 Common Questions
 ----------------
 
