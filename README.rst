@@ -25,21 +25,9 @@ Installation & Documentation
 
     pip install jellyfinapi
 
-*Install extra features:*
 
-.. code-block:: python
-
-    pip install jellyfinapi[alert]  # Install with dependencies required for jellyfinapi.alert
-
-
-Getting a Jellyfin Instance
+Connecting to a Jellyfin Instance
 -----------------------------
-
-There are two types of authentication. If you are running on a separate network
-or using Jellyfin Users you can log into MyJellyfin to get a JellyfinServer instance. An
-example of this is below. NOTE: Servername below is the name of the server (not
-the hostname and port).  If logged into Jellyfin Web you can see the server name in
-the top left above your available libraries.
 
 Pass in the baseurl and auth token:
 
@@ -49,7 +37,6 @@ Pass in the baseurl and auth token:
     baseurl = 'http://jellyfinserver:32400'
     token = '2ffLuB84dqLswk9skLos'
     jellyfin = JellyfinServer(baseurl, token)
-
 
 Usage Examples
 --------------
